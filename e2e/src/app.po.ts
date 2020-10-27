@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
   navigateTo(): Promise<unknown> {
@@ -7,5 +7,17 @@ export class AppPage {
 
   getTitleText(): Promise<string> {
     return element(by.css('arc-root .content span')).getText() as Promise<string>;
+  }
+
+  getElementById(id: string): ElementFinder {
+    return element(by.id(id));
+  }
+
+  async getTextFromElementById(id: string): Promise<string> {
+    return element(by.id(id)).getText();
+  }
+
+  triggerClick(id: string): void {
+    this.getElementById(id).click();
   }
 }

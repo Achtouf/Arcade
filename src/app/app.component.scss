@@ -1,0 +1,135 @@
+@use 'sass:color';
+
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+$colors: (
+  "blue": #0000ff,
+  "red": #ff0000,
+  "green": #00ff00,
+  "yellow": #ffff00,
+);
+
+.arcade {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 3rem;
+  
+  background-color: #f36d33;
+  border-radius: 6rem 6rem 2rem 2rem;
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 3rem;
+
+  font-size: 8rem;
+  font-family: "VT323", Arial, Helvetica, sans-serif;
+
+  height: 26rem;
+  width: 34rem;
+  
+  border-radius: 3rem;
+  border: .5rem solid white;
+  background-color: #1e1e1e;
+
+  @each $key, $value in $colors {
+    &.is-#{$key} {
+      color: $value;
+    }
+  }
+}
+
+
+.buttons {
+  &-list {
+    display: flex;
+  }
+}
+.action {
+  &-button {
+    $push-size: 5rem;
+
+    position: relative;
+    display: inline-block;
+    margin: 1em;
+
+    width: $push-size;
+    height: $push-size;
+
+    height: $push-size;
+    width: $push-size;
+
+    border: 0;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: box-shadow 200ms;
+
+    &:after {
+      position: absolute;
+      left: $push-size/10;
+      bottom: $push-size/20;
+      content: "";
+      display: block;
+
+      width: $push-size/1.25;
+      height: $push-size/1.25;
+
+      border: $push-size/15 solid rgba(0, 0, 0, 0.3);
+      border-width: 0 0 $push-size/15;
+      border-radius: 50%;
+      transition-duration: 200ms;
+    }
+
+    @each $key, $value in $colors {
+      &__#{$key} {
+        $push-color: $value;
+
+        background-color: $push-color;
+        box-shadow: inset 0 $push-size/32 0 lighten($push-color, 5%),
+          inset 0 (-$push-size/32) 0 darken($push-color, 5%),
+          inset 0 0 0 $push-size/32 darken($push-color, 3%),
+          inset 0 0 0 $push-size/12 $push-color,
+          inset 0 0 0 $push-size/10 darken($push-color, 20%),
+          inset 0 0 0 $push-size/9.2 darken($push-color, 50%),
+          inset
+            0
+            0
+            0
+            $push-size/7.5
+            transparentize(lighten($push-color, 30%), 0.3),
+          inset 0 0 0 $push-size/5.5 $push-color,
+          inset 0 $push-size/2.5 $push-size/7.5 darken($push-color, 5%),
+          inset 0 0 $push-size/10 $push-size/6 darken($push-color, 10%),
+          0 $push-size/20 0 rgba(0, 0, 0, 0.3);
+
+        &:active,
+        &.is-pushed {
+          background-color: darken($push-color, 2%);
+          box-shadow: inset 0 $push-size/32 0 lighten($push-color, 5%),
+            inset 0 (-$push-size/32) 0 darken($push-color, 5%),
+            inset 0 0 0 $push-size/32 darken($push-color, 3%),
+            inset 0 0 0 $push-size/12 $push-color,
+            inset 0 0 0 $push-size/10 darken($push-color, 20%),
+            inset 0 0 0 $push-size/8.5 darken($push-color, 40%),
+            inset 0 0 0 $push-size/7.5 transparentize(lighten($push-color, 30%), 0.8),
+            inset 0 0 0 $push-size/5.5 darken($push-color, 3%),
+            inset 0 $push-size/2.5 $push-size/7.5 darken($push-color, 8%),
+            inset 0 0 $push-size/10 $push-size/6 darken($push-color, 15%),
+            0 $push-size/20 0 rgba(0, 0, 0, 0.3);
+
+          &:after {
+            bottom: $push-size/20 + $push-size/15;
+            border-width: 0;
+          }
+        }
+      }
+    }
+  }
+}
