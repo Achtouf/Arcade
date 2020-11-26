@@ -1,8 +1,9 @@
 @use 'sass:color';
 
-@import url('https://fonts.googleapis.com/css?family=VT323');
+@import url("https://fonts.googleapis.com/css?family=VT323");
 
-$sky: #00BCD4;
+$sky: #00bcd4;
+$purple: #bb5acc;
 $colors: (
   "blue": #0000ff,
   "red": #ff0000,
@@ -18,21 +19,25 @@ $colors: (
 
   height: 100%;
   width: 100%;
+
+  background-image: linear-gradient(to right, #232526, #414345);
 }
 
 .arcade {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   align-content: center;
   padding: 3rem;
-  margin: auto;
 
   max-width: 50rem;
-  
+
   background-color: $sky;
+  // background-color: $purple;
   border-radius: 2rem;
+  box-shadow: 0 0 4rem 1rem rgba(black, 0.15);
+  transform: scale(0.8);
 }
 
 .screen {
@@ -47,10 +52,10 @@ $colors: (
 
   height: 26rem;
   width: 34rem;
-  
+
   border-radius: 1rem;
-  border: .5rem solid white;
-  background-color: #1e1e1e;
+  border: 0.5rem solid white;
+  background-color: #2c2e2f;
 
   @each $key, $value in $colors {
     &.is-#{$key} {
@@ -59,10 +64,20 @@ $colors: (
   }
 }
 
+.keyboard {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 
-.buttons {
-  &-list {
+.color-buttons {
+  &__list {
     display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
   }
 }
 .action {
@@ -132,7 +147,12 @@ $colors: (
             inset 0 0 0 $push-size/12 $push-color,
             inset 0 0 0 $push-size/10 darken($push-color, 20%),
             inset 0 0 0 $push-size/8.5 darken($push-color, 40%),
-            inset 0 0 0 $push-size/7.5 transparentize(lighten($push-color, 30%), 0.8),
+            inset
+              0
+              0
+              0
+              $push-size/7.5
+              transparentize(lighten($push-color, 30%), 0.8),
             inset 0 0 0 $push-size/5.5 darken($push-color, 3%),
             inset 0 $push-size/2.5 $push-size/7.5 darken($push-color, 8%),
             inset 0 0 $push-size/10 $push-size/6 darken($push-color, 15%),

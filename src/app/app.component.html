@@ -2,9 +2,16 @@
   <div class="screen is-{{ selectedColor }}" id="Screen">
     {{ selectedColor | titlecase }}
   </div>
-  <div class="buttons-list">
-    <ng-container *ngFor="let color of colors">
-      <button class="action-button action-button__{{ color }}" id="{{ color | titlecase }}ActionButton" (click)="setColor(color)"></button>
-    </ng-container>
+  <div class="keyboard">
+    <div class="directional-buttons__list"></div>
+    <div class="color-buttons__list">
+      <ng-container *ngFor="let color of colors">
+        <button
+          class="action-button action-button__{{ color }}"
+          id="{{ color | titlecase }}ActionButton"
+          (click)="setColor(color)"
+        ></button>
+      </ng-container>
+    </div>
   </div>
 </div>
