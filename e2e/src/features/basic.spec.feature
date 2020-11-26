@@ -6,3 +6,9 @@ Feature: Change screen text color
         Given I am on the home page
         When I click on "RedActionButton"
         Then The "Screen" should display "Red"
+
+    @TypeScriptScenario
+    Scenario: Set screen color to green
+        Given I am on the home page
+        When I click on "GreenActionButton"
+        Then The "Screen" should display "Green"

@@ -2,12 +2,23 @@
 
 @import url('https://fonts.googleapis.com/css?family=VT323');
 
+$sky: #00BCD4;
 $colors: (
   "blue": #0000ff,
   "red": #ff0000,
   "green": #00ff00,
   "yellow": #ffff00,
 );
+
+:host {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+}
 
 .arcade {
   display: flex;
@@ -16,9 +27,12 @@ $colors: (
   align-items: center;
   align-content: center;
   padding: 3rem;
+  margin: auto;
+
+  max-width: 50rem;
   
-  background-color: #f36d33;
-  border-radius: 6rem 6rem 2rem 2rem;
+  background-color: $sky;
+  border-radius: 2rem;
 }
 
 .screen {
@@ -34,7 +48,7 @@ $colors: (
   height: 26rem;
   width: 34rem;
   
-  border-radius: 3rem;
+  border-radius: 1rem;
   border: .5rem solid white;
   background-color: #1e1e1e;
 
