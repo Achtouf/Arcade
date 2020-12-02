@@ -20,4 +20,11 @@ export class AppPage {
   triggerClick(id: string): void {
     this.getElementById(id).click();
   }
+
+  async elementHasClass(id: string, cls: string): Promise<boolean> {
+    return await (this.getElementById(id)).getAttribute('class')
+      .then((classes) => {
+        return classes.split(' ').indexOf(cls) !== -1;
+      });
+  }
 }

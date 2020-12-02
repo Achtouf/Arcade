@@ -9,6 +9,7 @@
         <button
           class="action-button action-button__{{ color }}"
           id="{{ color | titlecase }}ActionButton"
+          [ngClass]="{'is-pushed': color === selectedColor}"
           (click)="setColor(color)"
         ></button>
       </ng-container>

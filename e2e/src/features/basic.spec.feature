@@ -12,3 +12,10 @@ Feature: Change screen text color
         Given I am on the home page
         When I click on "GreenActionButton"
         Then The "Screen" should display "Green"
+
+    @TypeScriptScenario
+    Scenario: Set screen color to blue
+        Given I am on the home page
+        When I click on "BlueActionButton"
+        Then The "Screen" should display "Blue"
+        And The "BlueActionButton" should have class "is-pushed"
