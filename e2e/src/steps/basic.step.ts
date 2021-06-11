@@ -8,7 +8,7 @@ let page: AppPage;
 Before(() => {
   page = new AppPage();
   browser.waitForAngularEnabled(true);
-  browser.manage().window().maximize();
+  browser.manage().window().maximize(); // Optional
 });
 
 Given('I am on the home page', async () => {

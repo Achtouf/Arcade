@@ -7,12 +7,14 @@ Feature: Change screen text color
     When I click on "RedActionButton"
     Then The "Screen" should display "Red"
 
+  # FAILS
   @ColorScenario
   Scenario: Set screen color to green
     # Given I am on the home page
     When I click on "GreenActionButton"
-    Then The "Screen" should display "Gray"
+    Then The "Screen" should display "Purple"
 
+  # FAILS
   @ColorScenario
   Scenario: Set screen color to blue
     # Given I am on the home page
